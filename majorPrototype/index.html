@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>Working with databases</title>
+    <link rel="stylesheet" href="css/majorPrototype.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div><button id="btnShortcut">HERE</button></div>
+
+    <!-- Register -->
+      <div class = "form" id="register-form">
+        <div class = header><h1>Register</h1></div>
+        <div class = "notComplete" id="registerNotComplete"></div>
+        <div><label>Email: </label><input id= "registerEmail" type="text" required></div>
+        <div><label>Full Name: </label><input id="fullName" type="text" ></div>
+        <div><label>Password: </label><input id="registerPassword" type="password"  ></div>
+        <div><label>User Type:</label>
+          <select class = select id = "userType">
+            <option value = "teacher">Teacher</option>
+            <option value = "student" >Student</option>
+          </select>
+        </div>
+        <div><button class = btn id="btnRegister">Submit</button></div>
+        <div><button class = btn id="btnLoginPage" >Already have an account?</button></div>
+      </div>
+
+    <!-- Login -->
+      <div class = "form" id="login-form">
+        <h1>Login</h1>
+        <div class = "notComplete" id="loginNotComplete"></div>
+        <div><label>Email: </label><input id= "loginEmail" type="email" required></div>
+        <div><label>Password: </label><input id="loginPassword" type="password" required></div>
+        <div id="fg-errors" class="form-group"></div>
+        <button class = btn id="btnLogin">Login</button>
+      </div>
+
+    <!-- Home Page -->
+      <div id = "homePage">
+        <h1>Home Page</h1>
+        <h2 id = "welcome" ></h2>
+        <div id = "imgNewClass"><img class = "newClass" src= "images/add.svg" width="120" height="90"></div>
+          <div id = "createClass"> Create A Class:
+            <div class = "notComplete" id = "createClassNotComplete"></div>
+            <div><label>Class Name: </label><input id= "className" type="text"></div>
+            <div><button id="btnCreateClass">Create Class</button></div>
+            <div id = "generateClassCode"></div>
+            <div><button id="btnExitCreate">X</button></div>
+          </div>
+          <div id = "addClass">
+            <div class = "notComplete" id = "addClassNotComplete"></div>
+            <div><label>Class code: </label><input id= "recieveClassCode" type="text"></div>
+            <div><button id="btnExitAdd">X</button></div>
+            <div><button id="btnAddClass">Add Class</button></div>
+          </div>
+      </div>
+      
+      <!-- Joining Class -->
+      <div class = "joinClass" id="join-form">
+        <h1>.....You're Joining....</h1>
+        <h2 id = "joinClassName" ></h2>
+        <div class = "notComplete" id = "joinNotComplete"></div>
+        <div id = "userSample" ><img src= "images/user.png" width="120" height="120"></div>
+        <div><label>Nickname: </label><input id= "nickname"></div>
+        <div><label>What are you working on: </label><input id= "work"></div>
+        <div><label>Camera:</label>
+          <select class = select id = "camera">
+            <option value = "Facetime HD Camera">Facetime HD Camera</option>
+            <option value = "...." >...</option>
+          </select>
+        <label>Microphone:</label>
+          <select class = select id = "microphone">
+            <option value = "Facetime HD Camera">Facetime HD Camera</option>
+            <option value = "...." >...</option>
+          </select>
+        </div>
+          <div><button class = btn id="btnJoinClass">Join Class</button></div>
+        </div>
+      </div>
+
+      <!-- Random class setup -->
+      <div id = "user" ><img src= "images/user.png" width="120" height="120"></div>
+      <div class = furniture>
+        <img id = "chair" src= "images/chair.png" width="150" height="150">
+        <img id = "couch" src= "images/couch.png" width="150" height="150">
+        <div class = fishBowl><img id = "fishBowl" src= "images/fishBowl.png" width="150" height="150">
+          <img id = "fish" src= "images/fish.png" width="20" height="20">
+        </div>
+        <img id = "table" src= "images/table.png" width="150" height="150">
+
+        <img id = "table2" src= "images/table2.png" width="150" height="150">
+        <img id = "couch2" src= "images/couch2.png" width="150" height="150">
+        <img id = "pinboard" src= "images/pinboard.png" width="150" height="150">
+
+        <div id="progressbar">
+          <div id ="progress"></div>
+        </div>
+      
+      </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="js/majorPrototype.js"></script>
+    </body>
+</html>

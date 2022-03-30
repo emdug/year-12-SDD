@@ -1,0 +1,170 @@
+body{
+  font-family: "Times New Roman", Times, serif;
+  background-color: #CCCCFF;
+  overflow: hidden;
+}
+#register-form,#login-form, #join-form{
+  margin-left: 5px;
+}
+
+
+#register-form input, #login-form input, #join-form input{
+  width: 300px;
+  padding: 5px;
+}
+
+label{
+  display: block;
+}
+
+.btn, .select{
+  width: 310px;
+  padding: 3px;
+  margin-top: 5px;
+
+}
+
+
+#login-form{
+  display: none;
+}
+
+#homePage{
+  display:none;
+}
+
+
+#createClass, #addClass{
+  display:none;
+  font-size: 20pt;
+  padding: 50px;
+  border: 2pt solid white;
+  border-radius: 5px;
+  width: 500px;
+  margin: 20px;
+  padding: 5px;
+  position:relative;
+}
+
+.classImg{
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+.notComplete{
+  color: red;
+  font-size: 12pt;
+}
+
+
+#btnExitAdd, #btnExitCreate{
+  position:absolute;
+  top:0;
+  right:0;
+  margin: 5px;
+}
+
+.classImg{
+  display: inline;
+  border-radius: 5px;
+}
+
+.joinClass{
+  display:none;
+}
+
+#userSample{
+  border: 2pt solid black;
+  border-radius: 5px;
+  width: 120px;
+}
+
+
+#user{
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.furniture{
+  display:none;
+  width: 1400px;
+  height: 800px;
+  position: relative;
+}
+
+#keys{
+  left: 200px;
+}
+
+
+#chair{
+  position: absolute;
+  right:10px;
+}
+
+#couch{
+  position: absolute;
+  left:500px;
+  bottom: 90px;
+}
+
+#fish{
+  position: absolute;
+  left:100px;
+  top: 150px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#fishBowl{
+  position: absolute;
+  left:40px;
+  top: 60px;
+  cursor: pointer;
+}
+
+#table{
+  position: absolute;
+  left:330px;
+  bottom:60px;
+}
+
+#table2{
+  position: absolute;
+  right: 190px;
+  top:50px;
+}
+
+#couch2{
+  position: absolute;
+  right: 90px;
+  bottom:320px;
+}
+
+#pinboard{
+  position: absolute;
+  left:500px;
+  top:60px;
+}
+
+
+
+#progressbar{
+  position: relative;
+  left:60px;
+  top: 35px;
+  border: 2pt solid black;
+  width: 110px;
+  height: 10px;
+}
+#progress{
+  position: absolute;
+  background-color: pink;
+  width: 10px;
+  height: 10px;
+  left: 0px;
+  right: 0px;
+
+}
