@@ -136,6 +136,8 @@ function addVClassClassroom(item, url, apikey){
 function homePage(){
     $("#register-form").hide();
     $("#login-form").hide();
+    $(".furniture").hide();
+
     $("#homePage").show();
     $('#welcome').text("Welcome " + currentUser.FullName);
     //run this function to put class divs on the screen - when working - running at the start for now
@@ -311,8 +313,6 @@ $('#btnJoinClass').click(function(){
         $(".furniture").show();
         $("body").css("background-color","white");
         $("#user").show();
-        $("#user").center();
-        window.scrollTo(700,0)
     }else{
         console.log(tempUserDetails)
         $('#joinNotComplete').text("*Please fill out required information");
@@ -324,10 +324,18 @@ $('#btnShortcut').click(function(){
     $(".furniture").show();
     $("body").css("background-color","white");
     $("#user").show();
-    $("#user").center();
-    window.scrollTo(700,0)
-
+    $("#btnShortcut").hide();
+    $("#btnShortcut2").hide();
 });
+
+$('#btnShortcut2').click(function(){
+    $("#register-form").hide();
+    $("#btnShortcut2").hide();
+    $("#btnShortcut").hide();
+    homePage();
+});
+
+
 
 //feeding fish 
 $('#fishBowl' || '#fish').click(function(){
@@ -336,50 +344,56 @@ $('#fishBowl' || '#fish').click(function(){
 });
 
 
-jQuery.fn.center = function () {
-    this.css("position","absolute");
-    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
-                                                $(window).scrollTop()) + "px");
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
-                                                $(window).scrollLeft()) + "px");
-    return this;
-}
-
-
 $("body").keydown(function(event){
-    $("#keys").hide();
+    var userRight = $("#user").position().left + 60;
+    var userLeft = $("#user").position().left - 60;
+    var userBottom = $("#user").position().top + 100;
+    var userTop = $("#user").position().top - 60;
+    var maxRight = $("#backgroundImg").width();
+    var maxBottom = $("#backgroundImg").height();
+
+    console.log("user left" + userLeft)
+
 
     //right//
-    if (event.which == 39) {
+    if (event.which == 39 && userRight < maxRight) {
         $("#user").animate({left:"+=50px"});
         window.scrollBy(50,0)
     }
-    //left// 
-    if (event.which == 37) {
-        $("#user").animate({left:"-=50px"});
-        window.scrollBy(-50,0)
-    }
     //down
-    if (event.which == 40) {
+    if (event.which == 40 && userBottom < maxBottom) {
         $("#user").animate({top:"+=50px"});
         window.scrollBy(0,50)
     }
+
     //up//
-    if (event.which == 38) {
+    if (event.which == 38 && userTop > 0) {
         $("#user").animate({top:"-=50px"});
         window.scrollBy(0,-50)
     }
+    //left// 
+    if (event.which == 37 && userLeft > 0) {
+        $("#user").animate({left:"-=50px"});
+        window.scrollBy(-50,0)
+    }
+});
+
+//zoom in 
+$("zoomIn").click(function(event){
+    var count = 0 
+
+});
+//zoom out 
+$("zoomOut").click(function(event){
+    var count = 0
+
+
 });
 
 
-$('#fish').click(function(){
-    ('')
+$("homeImg").click(function(event){
+    homePage();
 });
-
-$('#fishBowl').click(function(){
-});
-
-
 
 /* --- Code to run at start --- */
 getVClassUsers(urlVClassUsers,apikey);

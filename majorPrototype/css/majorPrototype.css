@@ -1,5 +1,5 @@
 body{
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Trebuchet MS', sans-serif;
   background-color: #CCCCFF;
   overflow: hidden;
 }
@@ -21,7 +21,6 @@ label{
   width: 310px;
   padding: 3px;
   margin-top: 5px;
-
 }
 
 
@@ -82,33 +81,82 @@ label{
 
 
 #user{
-  display: none;
   position: absolute;
-  z-index: 2;
+  top:calc(50% - 50px/2); /* height divided by 2*/
+  left:calc(50% - 50px/2); /* width divided by 2*/
 }
 
 .furniture{
   display:none;
-  width: 1400px;
-  height: 800px;
   position: relative;
 }
 
-#keys{
-  left: 200px;
+html, body {margin:0; padding:0;}  
+
+#classroomName{
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translate(-50%);
+  color: rgb(224, 221, 221);
+  font-size: 16pt;
+
 }
 
+#backgroundImg{
+  margin: 0;
+  padding: 0;
+  width: 2800px;
+  height: auto;
+}
 
-#chair{
+#zoomIn{
+  position: fixed;
+  top: 10px;
+  right: 5px;
+  border: 2pt solid white;
+  border-radius: 10px;
+  background-color: rgb(214, 212, 212);
+  opacity: 80%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#zoomOut{
+  position: fixed;
+  top: 80px;
+  right: 5px;
+  border: 2pt solid white;
+  border-radius: 10px;
+  background-color: rgb(214, 212, 212);
+  opacity: 80%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+#toolBar{
+  position: fixed;
+  bottom: 0px;
+  border: 2pt solid (214, 212, 212);
+  background-color: rgb(214, 212, 212);
+  width: 100%;
+  height: 80px;
+  opacity: 95%;
+}
+
+#homeImg{
   position: absolute;
-  right:10px;
+  right: 20px;
+  top: 50%;
+  transform: translate(0,-50%);
+  cursor: pointer;
+
 }
 
-#couch{
-  position: absolute;
-  left:500px;
-  bottom: 90px;
-}
+
+
 
 #fish{
   position: absolute;
@@ -124,33 +172,6 @@ label{
   top: 60px;
   cursor: pointer;
 }
-
-#table{
-  position: absolute;
-  left:330px;
-  bottom:60px;
-}
-
-#table2{
-  position: absolute;
-  right: 190px;
-  top:50px;
-}
-
-#couch2{
-  position: absolute;
-  right: 90px;
-  bottom:320px;
-}
-
-#pinboard{
-  position: absolute;
-  left:500px;
-  top:60px;
-}
-
-
-
 #progressbar{
   position: relative;
   left:60px;
