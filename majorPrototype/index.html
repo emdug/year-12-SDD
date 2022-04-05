@@ -5,28 +5,31 @@
     <link rel="stylesheet" href="css/majorPrototype.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-
   </head>
   <body>
     <div><button id="btnShortcut">HERE</button></div>
     <div><button id="btnShortcut2">HERE 2</button></div>
 
     <!-- Register -->
-      <div class = "form" id="register-form">
-        <div class = header><h1>Register</h1></div>
-        <div class = "notComplete" id="registerNotComplete"></div>
-        <div><label>Email: </label><input id= "registerEmail" type="text" required></div>
-        <div><label>Full Name: </label><input id="fullName" type="text" ></div>
-        <div><label>Password: </label><input id="registerPassword" type="password"  ></div>
-        <div><label>User Type:</label>
-          <select class = select id = "userType">
-            <option value = "teacher">Teacher</option>
-            <option value = "student" >Student</option>
-          </select>
-        </div>
-        <div><button class = btn id="btnRegister">Submit</button></div>
-        <div><button class = btn id="btnLoginPage" >Already have an account?</button></div>
+    <div id = "topBanner">
+      <div id="VClass">VClass</div>
+      <div id ="newToVclass">New To VClass?</div>
+    </div>
+    <div class = "form" id="register-form">
+      <div class = header><h1>Register</h1></div>
+      <div class = "notComplete" id="registerNotComplete"></div>
+      <div><label>Email: </label><input id= "registerEmail" type="text" required></div>
+      <div><label>Full Name: </label><input id="fullName" type="text" ></div>
+      <div><label>Password: </label><input id="registerPassword" type="password"  ></div>
+      <div><label>User Type:</label>
+        <select class = select id = "userType">
+          <option value = "teacher">Teacher</option>
+          <option value = "student" >Student</option>
+        </select>
       </div>
+      <div><button class = btn id="btnRegister">Submit</button></div>
+      <div><button class = btn id="btnLoginPage" >Already have an account?</button></div>
+    </div>
 
     <!-- Login -->
       <div class = "form" id="login-form">
@@ -41,8 +44,8 @@
     <!-- Home Page -->
       <div id = "homePage">
         <h1>Home Page</h1>
-        <h2 id = "welcome" ></h2>
-        <div id = "imgNewClass"><img class = "newClass" src= "images/add.svg" width="120" height="90"></div>
+        <h2 id = "welcome"></h2>
+        <div class = "clasImg"><img id = "imgNewClass" src= "images/add.svg" width="120" height="90"></div>
           <div id = "createClass"> Create A Class:
             <div class = "notComplete" id = "createClassNotComplete"></div>
             <div><label>Class Name: </label><input id= "className" type="text"></div>
@@ -84,21 +87,39 @@
       <!-- Random class setup -->
       <div class = "furniture">
         <div id = "classroomName">- - - - - - - - Maths 02 - - - - - - - -</div>
-        <div id = "user" ><img src= "images/user.png" width="120" height="120"></div>
-        <div id="zoomIn"><img src= "images/plus.png" width = "50px" height = "50px"></div>
-        <div id="zoomOut"><img src= "images/minus.png" width = "50px" height = "50px"></div>
+        <div id="forum">
+          <div id = "pinboardName"> Pinboard: Math O2</div>
+          <div id = "line"></div>
+          <div><button id="btnExitPinboard">X</button></div>
+          <div><button id="btnNew">New</button></div>
+          <div><button id="btnFolders">Folders</button></div>
+          <div id = "line2"></div>
+          <div id = "new">
+            <div id = "examplePost"><img src= "images/newPost.png" width="auto" height="110px"></div>
+          </div>
+          <div id = "folders">
+
+          </div>
+        </div>
+        <div><img id = "user" src= "images/user.png" width="120" height="120"></div>
+        <div><img id="zoomIn" src= "images/plus.png" width = "50px" height = "50px"></div>
+        <div><img id="zoomOut" src= "images/minus.png" width = "50px" height = "50px"></div>
         <div><img id = "backgroundImg" src= "images/room.png"></div>
         <div id = "toolBar">
           <div id="homeImg"><img src= "images/home.png" width = "50px" height = "50px"></div>
         </div>
 
-        <!-- <div class = fishBowl><img id = "fishBowl" src= "images/fishBowl.png" width="150" height="150">
-          <img id = "fish" src= "images/fish.png" width="20" height="20">
-        </div> -->
-        <!-- <div id="progressbar">
-          <div id ="progress"></div>
+        <div class = "pinboard"><img id = "pinboard" src= "images/pinboard.png" width = "auto" height = "250"></div>
+        <div class = "parent">
+          <div id="progressbar"><div id ="progress"></div></div>
+          <img class = "fishBowl" src= "images/fishBowl.png">
+          <img class = "fish" src= "images/fish.png" width="20" height="20">
         </div>
-       -->
+        </div>
+
+
+        
+      
       </div>
 
 

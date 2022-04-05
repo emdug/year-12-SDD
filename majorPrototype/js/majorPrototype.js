@@ -137,13 +137,15 @@ function homePage(){
     $("#register-form").hide();
     $("#login-form").hide();
     $(".furniture").hide();
+    window.scrollTo(0,0)
+    $("body").css("background-color","white");
 
     $("#homePage").show();
     $('#welcome').text("Welcome " + currentUser.FullName);
     //run this function to put class divs on the screen - when working - running at the start for now
         //getVClassClassrooms(urlVClassClassrooms,apikey);
-    //put an example class on screen  -- have response[i].ImgURL and arrVClassClassrooms[1]._id
-    var classItem = '<div class="classImg" id="' + arrVClassClassrooms[1].ClassName + '"><img src="' + "images/math.jpg" + '" width="100" height="90"><label>' + arrVClassClassrooms[1].ClassName + '<label/></div>';
+    //put an example class on screen  -- have response[i].ImgURL and arrVClassClassrooms[1]._id, arrVClassClassrooms[1].ClassName
+    var classItem = '<div class="classImg" id="mathClassroom"><img src="' + "images/math.jpg" + '" width="100" height="90"><label>' + arrVClassClassrooms[1].ClassName + '<label/></div>';
 
     console.log(classItem)
     $("body").append(classItem);
@@ -335,67 +337,111 @@ $('#btnShortcut2').click(function(){
     homePage();
 });
 
-
-
-//feeding fish 
-$('#fishBowl' || '#fish').click(function(){
-    $("#fish").animate({
-    });
-});
-
-
 $("body").keydown(function(event){
     var userRight = $("#user").position().left + 60;
-    var userLeft = $("#user").position().left - 60;
-    var userBottom = $("#user").position().top + 100;
+    var userLeft = $("#user").position().left - 100;
+    var userBottom = $("#user").position().top + 300;
     var userTop = $("#user").position().top - 60;
     var maxRight = $("#backgroundImg").width();
     var maxBottom = $("#backgroundImg").height();
 
-    console.log("user left" + userLeft)
-
-
     //right//
     if (event.which == 39 && userRight < maxRight) {
-        $("#user").animate({left:"+=50px"});
+       $("#user").animate({left:"+=50px"});
         window.scrollBy(50,0)
     }
     //down
     if (event.which == 40 && userBottom < maxBottom) {
-        $("#user").animate({top:"+=50px"});
+       $("#user").animate({top:"+=50px"});
         window.scrollBy(0,50)
     }
 
     //up//
     if (event.which == 38 && userTop > 0) {
-        $("#user").animate({top:"-=50px"});
+       $("#user").animate({top:"-=50px"});
         window.scrollBy(0,-50)
     }
     //left// 
     if (event.which == 37 && userLeft > 0) {
-        $("#user").animate({left:"-=50px"});
+       $("#user").animate({left:"-=50px"});
         window.scrollBy(-50,0)
     }
 });
 
+
+var zoomCount = 0
 //zoom in 
-$("zoomIn").click(function(event){
-    var count = 0 
-
+$("#zoomIn").click(function(){
+    if (zoomCount < 2){
+        var backgroundHeight = $('#backgroundImg').height() * 1.2;
+        var userHeight = $('#user').height() * 1.2;
+        $('#backgroundImg').css({'width': 'auto', 'height': backgroundHeight + 'px'});
+        $('#user').css({'width': userHeight + 'px', 'height': userHeight + 'px'});
+        zoomCount = zoomCount + 1
+        console.log(zoomCount)
+    }
 });
+
 //zoom out 
-$("zoomOut").click(function(event){
+$("#zoomOut").click(function(){
     var count = 0
+    if (zoomCount > -1){
+        var backgroundHeight = $('#backgroundImg').height() * 0.8;
+        var userHeight = $('#user').height() * 0.8;
+        $('#backgroundImg').css({'width': 'auto', 'height': backgroundHeight + 'px'});
+        $('#user').css({'width': userHeight + 'px', 'height': userHeight + 'px'});
+        zoomCount = zoomCount -1
+    }
 
 
 });
 
-
-$("homeImg").click(function(event){
+$('#homeImg').click(function(){
     homePage();
 });
+
+$('#pinboard').click(function(){
+    $("#forum").show();
+});
+
+$('#btnExitPinboard').click(function(){
+    $("#forum").hide();
+});
+
+//feeding fish 
+$('.fishBowl' || '.fish').click(function(){
+    //left
+    $(".fish").animate({left:"-=10px"},1000);
+    //rotate 
+    $(".fish").css('transform', 'rotateY(-180deg)');
+    //right
+    $(".fish").animate({left:"+=10px"},1000);
+
+    //$(".fish").animate({left:"+10px"},1000);
+   // $(".fish").animate({right: '10px'}, 1000);
+    var progressWidth = $("#progress").width() + 10;
+    if(progressWidth<= 90){
+        $("#progress").css({'width': progressWidth + 'px'});
+    }     
+});
+
+function fishProgress() {
+    var progressWidth = $("#progress").width() - 10;
+    if(progressWidth>= 0){
+        $("#progress").css({'width': progressWidth + 'px'});
+    }
+    if(progressWidth == 0){
+        //display dead fish 
+    }
+}
+
+
+
 
 /* --- Code to run at start --- */
 getVClassUsers(urlVClassUsers,apikey);
 getVClassClassrooms(urlVClassClassrooms,apikey);
+
+//fish bowl - goes down every 10 mins
+setTimeout(fishProgress, 600000);
 
