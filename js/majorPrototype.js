@@ -137,6 +137,8 @@ function homePage(){
     $("#register-form").hide();
     $("#login-form").hide();
     $(".furniture").hide();
+    $("#switchToRegister").hide();
+    $("#switchToLogin").hide();
     window.scrollTo(0,0)
     $("body").css("background-color","white");
 
@@ -145,10 +147,10 @@ function homePage(){
     //run this function to put class divs on the screen - when working - running at the start for now
         //getVClassClassrooms(urlVClassClassrooms,apikey);
     //put an example class on screen  -- have response[i].ImgURL and arrVClassClassrooms[1]._id, arrVClassClassrooms[1].ClassName
-    var classItem = '<div class="classImg" id="mathClassroom"><img src="' + "images/math.jpg" + '" width="100" height="90"><label>' + arrVClassClassrooms[1].ClassName + '<label/></div>';
+    var classItem = '<div class="classImg" id="mathClassroom"><img src="' + "images/math.jpg" + '" width="100" height="90"><label>' + arrVClassClassrooms[1].ClassName + '</label></div>';
 
     console.log(classItem)
-    $("body").append(classItem);
+    //$("body").append(classItem);
 }
 
 //function to check if user has ability to create or add class 
@@ -172,6 +174,42 @@ function generateString(length) {
 }
 
 /* --- Event Handlers --- */
+//login
+$('#btnLogin').click(function(){
+    //if statement to check there is input
+    if($('#loginEmail').val().length > 0 && $('#loginPassword').val().length > 0){
+        //search through database to check there is a match of email and password
+        var count = 0;
+        var found = false; 
+        while (arrVClassUsers.length > count && found == false){
+            if (arrVClassUsers[count].Email == $('#loginEmail').val() && arrVClassUsers[count].Password == $('#loginPassword').val()){
+                found = true;
+                //store user info in currentUser universal variable
+                var tempItem = {
+                    "Email": arrVClassUsers[count].Email,
+                    "FullName": arrVClassUsers[count].FullName, 
+                    "Password": arrVClassUsers[count].Password, 
+                    "UserType": arrVClassUsers[count].UserType,
+                    "UserClasses": arrVClassUsers[count].UserClasses
+                };
+                currentUser = tempItem;
+                currentUserId = arrVClassUsers[count]._id;
+                console.log(currentUser)
+                //take user to new page - home page 
+                homePage();
+                //put any of their existing classes on the screen 
+            }
+        count ++;
+        }
+        // if there is not a match provide error message 
+        if(found == false){
+            $('#loginNotComplete').text("*Password or email incorrect");
+        }
+    }else{
+        $('#loginNotComplete').text("*Please fill out required information");
+    }
+})
+
 //register
 $('#btnRegister').click(function(){
     //making sure input in text boxes
@@ -209,44 +247,18 @@ $('#btnRegister').click(function(){
     }
 })
 
-$('#btnLoginPage').click(function(){
-    $("#register-form").hide();
-    $("#login-form").show();
+$('#btnRegisterPage').click(function(){
+    $("#login-form").hide();
+    $("#switchToRegister").hide();
+    $("#switchToLogin").show();
+    $("#register-form").show();
 })
 
-$('#btnLogin').click(function(){
-    //if statement to check there is input
-    if($('#loginEmail').val().length > 0 && $('#loginPassword').val().length > 0){
-        //search through database to check there is a match of email and password
-        var count = 0;
-        var found = false; 
-        while (arrVClassUsers.length > count && found == false){
-            if (arrVClassUsers[count].Email == $('#loginEmail').val() && arrVClassUsers[count].Password == $('#loginPassword').val()){
-                found = true;
-                //store user info in currentUser universal variable
-                var tempItem = {
-                    "Email": arrVClassUsers[count].Email,
-                    "FullName": arrVClassUsers[count].FullName, 
-                    "Password": arrVClassUsers[count].Password, 
-                    "UserType": arrVClassUsers[count].UserType,
-                    "UserClasses": arrVClassUsers[count].UserClasses
-                };
-                currentUser = tempItem;
-                currentUserId = arrVClassUsers[count]._id;
-                console.log(currentUser)
-                //take user to new page - home page 
-                homePage();
-                //put any of their existing classes on the screen 
-            }
-        count ++;
-        }
-        // if there is not a match provide error message 
-        if(found == false){
-            $('#loginNotComplete').text("*Password or email incorrect");
-        }
-    }else{
-        $('#loginNotComplete').text("*Please fill out required information");
-    }
+$('#btnLoginPage').click(function(){
+    $("#login-form").show();
+    $("#switchToRegister").show();
+    $("#switchToLogin").hide();
+    $("#register-form").hide();
 })
 
 $('#imgNewClass').click(function(){
@@ -261,7 +273,6 @@ $('#btnCreateClass').click(function(){
         var tempItem = {ClassName: $('#className').val(),ClassCode: classCode};
         addVClassClassroom(tempItem, urlVClassClassrooms, apikey);
         $('#generateClassCode').text("Your class code is: " + classCode);
-        $("#createClass").hide();
 //********** TBF: CREATE A CLASS DIV. and put it on the screen as soon as they create class ******** //
     }else{
         $('#createClassNotComplete').text("*Please fill out required information");
@@ -294,10 +305,11 @@ $('#btnExitAdd').click(function(){
 })
 
 //joining a class 
-$('body').on('click', '.classImg', function(){
+$('body').on('click', '#mathClassroom', function(){
     $("#homePage").hide();
     $(".classImg").hide();
     $(".joinClass").show();
+    $(".homeImgJoin").show();
     $('#joinClassName').text($(this).attr('id'));
 });
 
@@ -312,6 +324,7 @@ $('#btnJoinClass').click(function(){
         tempUserDetails = item;
         $(".joinClass").hide();
         $(".classImg").hide();
+        $("#topBanner").hide();
         $(".furniture").show();
         $("body").css("background-color","white");
         $("#user").show();
@@ -328,6 +341,8 @@ $('#btnShortcut').click(function(){
     $("#user").show();
     $("#btnShortcut").hide();
     $("#btnShortcut2").hide();
+    $("#topBanner").hide();
+    
 });
 
 $('#btnShortcut2').click(function(){

@@ -2,9 +2,13 @@ body{
   font-family: 'Trebuchet MS', sans-serif;
   background-color: white;
   overflow: hidden;
+
 }
 #register-form,#login-form, #join-form{
-  margin-left: 5px;
+  padding: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 
@@ -13,18 +17,50 @@ body{
   padding: 5px;
 }
 
+#switchToLogin{
+  display: none;
+}
+
+h1{
+  font-size: 25pt;
+  margin: 0px;
+  text-align: center;
+}
+
+h2{
+  font-style: italic;
+  font-size: 10pt;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 label{
   display: block;
+  margin: 5px;
+}
+
+input,select{
+  margin-bottom: 5px;
 }
 
 .btn, .select{
   width: 310px;
   padding: 3px;
   margin-top: 5px;
+  font-size: 13pt;
+}
+
+.btn{
+  border: 1pt solid black;
+  border-radius: 5px;
+  color: black;
+  background-color: #F2C166;
+  padding: 5px;
 }
 
 
-#login-form{
+#register-form{
   display: none;
 }
 
@@ -33,32 +69,67 @@ label{
 }
 
 #topBanner{
+  position: relative;
   top: 0px;
-  padding: 10px;
   border: 2pt solid (214, 212, 212);
   border-bottom: 2pt solid black;
-  background-color: #abced3;
-  padding: 20px;
+  background-color: #ADC8D9;
   width: 100%;
-  height: 40px;
+  height:100px;
   opacity: 95%;
-  margin-bottom: 10px;
-  z-index: 5;
+  z-index: 1;
 }
 
 #VClass{
+  position: absolute;
   font-style: italic;
   font-style: oblique;
   font-size: 30pt;
-  margin-left: 10px;
+  left: 20px;
+  top: 30%;
 }
 
 #newToVclass{
   position: absolute;
-  right: 0px;
-  top: 50%;
+  right: 14%;
+  top: 40%;
+  font-size: 13pt;
+  z-index: 2;
 }
 
+#btnRegisterPage,#btnLoginPage{
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  font-size: 13pt;
+  z-index: 2;
+  width: 100px;
+}
+
+#line3{
+  position: absolute;
+  top: 200px;
+  border: 2pt solid rgb(95, 94, 94);
+  width: 100%;
+}
+
+#titleHomePage{
+  position: absolute;
+  left: 20px;
+  font-size: 25pt;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#welcome{
+  position: absolute;
+  left: 20px;
+  top: 160px;
+  font-style: italic;
+  font-size: 13pt;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
 
 #createClass, #addClass{
   display:none;
@@ -72,28 +143,17 @@ label{
   position:relative;
 }
 
-.classImg{
-  display: flex;
+.newClass{
+  top: 100px;
   cursor: pointer;
-  flex-wrap: wrap;
 }
-
-#mathClassroom{
-  flex-direction: row;
-}
-
-#imgNewClass{
-  flex-direction: row;
-  order: 5;
-}
-
-
 
 
 
 .notComplete{
   color: red;
   font-size: 12pt;
+  text-align: center;
 }
 
 
@@ -104,9 +164,21 @@ label{
   margin: 5px;
 }
 
+.classroomDisplay{
+  position: absolute;
+  display: flex;
+  top:200px;
+  padding: 20px;
+}
+
 .classImg{
-  display: inline;
-  border-radius: 5px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+#mathClassroomlbl{
+  text-align: center;
+  margin-top: 0px;
 }
 
 .joinClass{
@@ -117,8 +189,14 @@ label{
   border: 2pt solid black;
   border-radius: 5px;
   width: 120px;
+  position: relative;
+  left: 30%;
 }
 
+
+#homeImgJoin{
+  display:none;
+}
 
 #user{
   position: fixed;

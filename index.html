@@ -9,14 +9,34 @@
   <body>
     <div><button id="btnShortcut">HERE</button></div>
     <div><button id="btnShortcut2">HERE 2</button></div>
-
-    <!-- Register -->
+  
+    <!-- Login -->
     <div id = "topBanner">
       <div id="VClass">VClass</div>
-      <div id ="newToVclass">New To VClass?</div>
+      <div id="switchToRegister">
+        <div id ="newToVclass">New To VClass?</div>
+        <div><button class = "btn" id="btnRegisterPage">Register</button></div>
+      </div>
+      <div id="switchToLogin">
+        <div id ="newToVclass">Already have an account?</div>
+        <div><button class = "btn" id="btnLoginPage">Login</button></div>
+      </div>
+      <div id="homeImgJoin"><img src= "images/home.png" width = "50px" height = "50px"></div>
     </div>
+    <div class = "form" id="login-form">
+      <h1>Login</h1>
+      <div class = "subheader"><h2>Login to join your virtual classroom space.</h2></div>
+      <div class = "notComplete" id="loginNotComplete"></div>
+      <div><label>Email: </label><input id= "loginEmail" type="email" required></div>
+      <div><label>Password: </label><input id="loginPassword" type="password" required></div>
+      <div id="fg-errors" class="form-group"></div>
+      <button class = "btn" id="btnLogin">Login</button>
+    </div>
+
+    <!-- Register -->
     <div class = "form" id="register-form">
-      <div class = header><h1>Register</h1></div>
+      <div class = "header"><h1>Register</h1></div>
+      <div class = "subheader"><h2>Register to get started.</h2></div>
       <div class = "notComplete" id="registerNotComplete"></div>
       <div><label>Email: </label><input id= "registerEmail" type="text" required></div>
       <div><label>Full Name: </label><input id="fullName" type="text" ></div>
@@ -27,25 +47,21 @@
           <option value = "student" >Student</option>
         </select>
       </div>
-      <div><button class = btn id="btnRegister">Submit</button></div>
-      <div><button class = btn id="btnLoginPage" >Already have an account?</button></div>
+      <div><button class = "btn" id="btnRegister">Submit</button></div>
     </div>
 
-    <!-- Login -->
-      <div class = "form" id="login-form">
-        <h1>Login</h1>
-        <div class = "notComplete" id="loginNotComplete"></div>
-        <div><label>Email: </label><input id= "loginEmail" type="email" required></div>
-        <div><label>Password: </label><input id="loginPassword" type="password" required></div>
-        <div id="fg-errors" class="form-group"></div>
-        <button class = btn id="btnLogin">Login</button>
-      </div>
+  
 
     <!-- Home Page -->
       <div id = "homePage">
-        <h1>Home Page</h1>
-        <h2 id = "welcome"></h2>
-        <div class = "clasImg"><img id = "imgNewClass" src= "images/add.svg" width="120" height="90"></div>
+        <div id = "titleHomePage">Home Page</div>
+        <div id = "welcome"></div>
+        <div id = "line3"></div>
+        <div class = "classroomDisplay">
+          <div>
+            <img class="classImg" id="mathClassroom" src="images/math.jpg" width="140" height="140"><label id="mathClassroomlbl" >Math 02</label>
+          </div>
+          <img class = "classImg" id = "imgNewClass" src= "images/add.svg" width="140" height="140">
           <div id = "createClass"> Create A Class:
             <div class = "notComplete" id = "createClassNotComplete"></div>
             <div><label>Class Name: </label><input id= "className" type="text"></div>
@@ -59,6 +75,7 @@
             <div><button id="btnExitAdd">X</button></div>
             <div><button id="btnAddClass">Add Class</button></div>
           </div>
+        </div>
       </div>
       
       <!-- Joining Class -->
