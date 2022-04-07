@@ -135,7 +135,7 @@ input,select{
   display:none;
   font-size: 20pt;
   padding: 50px;
-  border: 2pt solid #CCCCFF;
+  border: 2pt solid #ADC8D9;
   border-radius: 5px;
   width: 500px;
   margin: 20px;
@@ -196,6 +196,11 @@ input,select{
 
 #homeImgJoin{
   display:none;
+  z-index: 3;
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  cursor: pointer;
 }
 
 #user{

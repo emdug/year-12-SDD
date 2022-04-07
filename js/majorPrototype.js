@@ -139,6 +139,9 @@ function homePage(){
     $(".furniture").hide();
     $("#switchToRegister").hide();
     $("#switchToLogin").hide();
+    $(".joinClass").hide();
+    $("#homeImgJoin").hide();
+
     window.scrollTo(0,0)
     $("body").css("background-color","white");
 
@@ -185,14 +188,14 @@ $('#btnLogin').click(function(){
             if (arrVClassUsers[count].Email == $('#loginEmail').val() && arrVClassUsers[count].Password == $('#loginPassword').val()){
                 found = true;
                 //store user info in currentUser universal variable
-                var tempItem = {
+                var tempItemUser = {
                     "Email": arrVClassUsers[count].Email,
                     "FullName": arrVClassUsers[count].FullName, 
                     "Password": arrVClassUsers[count].Password, 
                     "UserType": arrVClassUsers[count].UserType,
                     "UserClasses": arrVClassUsers[count].UserClasses
                 };
-                currentUser = tempItem;
+                currentUser = tempItemUser;
                 currentUserId = arrVClassUsers[count]._id;
                 console.log(currentUser)
                 //take user to new page - home page 
@@ -214,7 +217,7 @@ $('#btnLogin').click(function(){
 $('#btnRegister').click(function(){
     //making sure input in text boxes
     if($('#registerEmail').val().length > 0 && $('#fullName').val().length > 0 && $('#registerPassword').val().length > 0) {
-        var tempItem = {
+        var tempItemUser = {
             "Email": $('#registerEmail').val(),
             "FullName":$('#fullName').val(), 
             "Password":$('#registerPassword').val(), 
@@ -223,7 +226,7 @@ $('#btnRegister').click(function(){
             "UserClasses": []
         };
         //store current user details in universal variable
-        currentUser = tempItem;
+        currentUser = tempItemUser;
         console.log(currentUser)
         //ensure that user isnt already in db 
         var count = 0;
@@ -270,8 +273,8 @@ $('#btnCreateClass').click(function(){
     if(($('#className').val()).length > 0){
         var classCode = generateString(8);
         console.log(classCode);
-        var tempItem = {ClassName: $('#className').val(),ClassCode: classCode};
-        addVClassClassroom(tempItem, urlVClassClassrooms, apikey);
+        var tempItemClassroom = {ClassName: $('#className').val(),ClassCode: classCode};
+        addVClassClassroom(tempItemClassroom, urlVClassClassrooms, apikey);
         $('#generateClassCode').text("Your class code is: " + classCode);
 //********** TBF: CREATE A CLASS DIV. and put it on the screen as soon as they create class ******** //
     }else{
@@ -309,7 +312,7 @@ $('body').on('click', '#mathClassroom', function(){
     $("#homePage").hide();
     $(".classImg").hide();
     $(".joinClass").show();
-    $(".homeImgJoin").show();
+    $("#homeImgJoin").show();
     $('#joinClassName').text($(this).attr('id'));
 });
 
@@ -412,6 +415,10 @@ $("#zoomOut").click(function(){
 });
 
 $('#homeImg').click(function(){
+    homePage();
+});
+
+$('#homeImgJoin').click(function(){
     homePage();
 });
 
